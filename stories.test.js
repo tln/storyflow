@@ -26,7 +26,7 @@ describe('with no store', () => {
 });
 
 describe('with a token', function() {
-    beforeEach(storeAndLoad({ token: 'faeb81ca267949977c21d430c526a2cc' }));
+    beforeEach(storeAndLoad({ token: '**** TODO: REAL TOKEN WAS HERE ****' }));
     test('gets projects', () => {
         console.log(stories.projects[0]);
         expect(stories.projects).toBeDefined();

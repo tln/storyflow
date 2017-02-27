@@ -10,8 +10,18 @@ const http = require('http');
 const tracker = require('pivotaltracker');
 const cookie = require('cookie');
 
+function getToken() {
+    var token = process.env['PT_TOKEN'] || process.argv[2];
+    if (typeof token === 'string' && /^[0-9a-f]+$/.test(token) && token.length === 32) {
+        return token;
+    } else {
+        console.log('found:', token);
+        throw 'Must pass token as $PT_TOKEN or on command line'
+    }
+}
+
 const state = {
-    client: new tracker.Client('faeb81ca267949977c21d430c526a2cc'),
+    client: new tracker.Client(getToken()),
     projects: null,
     currentProject: null
 };
