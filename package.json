@@ -1,0 +1,22 @@
+{
+  "name": "issues",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --harmony ./node_modules/.bin/jest",
+    "start": "node --harmony server.js",
+    "dev": "nodemon --harmony -i tests server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pivotal": "^0.2.0",
+    "pivotaltracker": "github:tln/pivotaltracker",
+    "ws": "^2.1.0"
+  },
+  "devDependencies": {
+    "jest": "^19.0.2",
+    "nodemon": "^1.11.0"
+  }
+}
