@@ -110,11 +110,27 @@ function handleRequest(req, res) {
         padding: 5px;
         background: #444;
       }
-      body { background: #221; color: #FEE; }
+      body { background: #221; color: #FEE; padding: 0; margin: 0;}
       .started { border-color: #AAF; background: #446; }
       .unstarted { border-color: #AAA; background: #444; }
       .unscheduled { border-color: #666; background: #222; color: #666; }
       .finished { border-color: #AFA; background: #464; }
+
+      nav {
+        background: #333;
+        padding: 5px;
+      }
+      nav h1 {
+        display: inline-block;
+        font-size: 16px;
+        line-height: 1em;
+        margin: 0;
+      }
+      nav a.project {
+        float: right;
+        color: #888;
+        text-decoration: none;
+      }
       </style>
       <script>
       var exampleSocket = new WebSocket("ws://localhost:8000/");
@@ -134,10 +150,9 @@ function handleRequest(req, res) {
         }, 1500);
       }
       </script>
-      <h1><a href="/all">Tracker</a></h1>
+      <nav><h1>StoryFlow</h1>   <a class="project" href="/all">${state.currentProject && state.currentProject.name}</a></nav>
     `;
     if (state.currentProject) {
-        html += `<h2>${state.currentProject.name}</h2>`;
         if (state.loading) {
             html += `<div>loading...</div>`;
             headers['refresh'] = '0.5'
